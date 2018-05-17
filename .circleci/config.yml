@@ -16,7 +16,7 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run: gradle test jacocoTestReport
-      - store_artifacts:
-          path: ~/repo/build/jacocoHtml
+      - store_test_results:
+          path: build/jacocoHtml
 
 
