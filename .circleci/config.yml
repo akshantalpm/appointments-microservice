@@ -31,5 +31,6 @@ jobs:
 
       - deploy:
           command: |
+            docker login --username=_ -p "$HEROKU_TOKEN" registry.heroku.com
             make build -B;
             make install tag-develop deploy;
