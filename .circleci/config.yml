@@ -23,7 +23,7 @@ jobs:
           name: Build prerequisites
           command: |
             docker --version
-            docker login -u "$DOCKER_USER" --password-stdin "$DOCKER_PASS"
+            docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
             apk add --no-cache make=4.2.1-r0
       - run:
           name: Build service
