@@ -24,7 +24,7 @@ jobs:
           command: |
             docker --version
             docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
-            apt-get install make
+            sudo apt-get install make
       - run:
           name: Build service
           command: make build
