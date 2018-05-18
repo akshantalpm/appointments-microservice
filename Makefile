@@ -24,6 +24,6 @@ install: build
 	docker push $(REPO)/$(NAME):$(VERSION)
 
 deploy:
-    docker login --username=_ --password=$HEROKU_TOKEN registry.heroku.com
-    docker tag $(REPO)/$(NAME):develop registry.heroku.com/$(NAME)/web
-    docker push registry.heroku.com/$(NAME)/web
+	docker login --username=_ --password=$(HEROKU_TOKEN) registry.heroku.com
+	docker tag $(REPO)/$(NAME):develop registry.heroku.com/$(NAME)/web
+	docker push registry.heroku.com/$(NAME)/web
