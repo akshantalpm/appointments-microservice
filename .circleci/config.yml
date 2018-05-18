@@ -32,4 +32,4 @@ jobs:
       - deploy:
           command: |
             make build -B;
-            make install tag-develop;
+            make install tag-develop deploy;
