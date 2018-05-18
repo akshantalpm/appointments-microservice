@@ -18,5 +18,17 @@ jobs:
       - run: gradle test jacocoTestReport
       - store_artifacts:
           path: ~/repo/build/jacocoHtml
+      - setup_remote_docker
+      - run:
+          name: Build prerequisites
+          command: |
+            docker --version
+            docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+            apk add --no-cache make=4.2.1-r0
+      - run:
+          name: Build service
+          command: make build
 
-
+      - deploy:
+          command: |
+            make install tag-develop;
