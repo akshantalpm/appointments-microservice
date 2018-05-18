@@ -24,7 +24,7 @@ jobs:
           command: |
             docker --version
             docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
-            apk add --no-cache make=4.2.1-r0
+            apt-get install make
       - run:
           name: Build service
           command: make build
