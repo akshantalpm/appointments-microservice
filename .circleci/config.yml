@@ -30,6 +30,7 @@ jobs:
           command: make build
 
       - deploy:
+          name: Deploy service
           command: |
             docker login --username=_ -p "$HEROKU_TOKEN" registry.heroku.com
             make build -B;
