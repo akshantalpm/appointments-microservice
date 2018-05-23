@@ -1,7 +1,7 @@
 NAME=appointments-management
 VERSION=$(shell cat VERSION)
 REPO=poojaak
-
+DEPLOY_DEV_URL=http://${JENKINS_DEV_USER}:${JENKINS_DEV_TOKEN}@18.219.70.127:8080/job/appt-mgmt-deploy-dev/build
 
 
 build:
@@ -25,4 +25,5 @@ install: build
 
 deploy:
 	docker tag $(REPO)/$(NAME):develop registry.heroku.com/$(NAME)/web
-	docker push registry.heroku.com/$(NAME)/web
+	@curl -vvv -XPOST "${DEPLOY_DEV_URL}"
+
